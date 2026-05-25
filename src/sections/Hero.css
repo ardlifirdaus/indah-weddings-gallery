@@ -1,0 +1,181 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 0 80px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #F9F3EC 0%, #F5E6D3 35%, #F3DCC8 70%, #E8C4B0 100%);
+  background-size: 300% 300%;
+  animation: hero-gradient 14s ease infinite;
+  z-index: 0;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(201, 168, 76, 0.18), transparent 25%),
+    radial-gradient(circle at 88% 78%, rgba(192, 123, 123, 0.16), transparent 28%),
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+@keyframes hero-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-petals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #C9A84C, #C07B7B);
+  border-radius: 50% 12% 50% 12%;
+  opacity: 0.35;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-20vh) rotate(0); opacity: 0; }
+  10% { opacity: 0.4; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+
+.petal-0 { left: 5%; animation-duration: 14s; animation-delay: 0s; }
+.petal-1 { left: 14%; animation-duration: 18s; animation-delay: 2s; }
+.petal-2 { left: 22%; animation-duration: 16s; animation-delay: 4s; width: 10px; height: 10px; }
+.petal-3 { left: 30%; animation-duration: 20s; animation-delay: 1s; }
+.petal-4 { left: 38%; animation-duration: 17s; animation-delay: 5s; }
+.petal-5 { left: 46%; animation-duration: 22s; animation-delay: 3s; width: 16px; height: 16px; }
+.petal-6 { left: 54%; animation-duration: 15s; animation-delay: 7s; }
+.petal-7 { left: 62%; animation-duration: 19s; animation-delay: 0s; }
+.petal-8 { left: 70%; animation-duration: 21s; animation-delay: 4s; width: 12px; height: 12px; }
+.petal-9 { left: 78%; animation-duration: 16s; animation-delay: 6s; }
+.petal-10 { left: 86%; animation-duration: 23s; animation-delay: 2s; }
+.petal-11 { left: 92%; animation-duration: 18s; animation-delay: 8s; }
+.petal-12 { left: 10%; animation-duration: 25s; animation-delay: 10s; }
+.petal-13 { left: 60%; animation-duration: 13s; animation-delay: 11s; }
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-monogram {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-accent);
+  color: var(--gold-deep);
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 76px;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.08em;
+}
+
+.hero-script {
+  display: block;
+  font-family: var(--font-script);
+  font-size: clamp(4rem, 11vw, 8rem);
+  color: var(--gold-deep);
+  line-height: 1;
+  margin-bottom: -10px;
+  text-shadow: 0 4px 12px rgba(168, 134, 47, 0.2);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: var(--text);
+  margin: 8px 0 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-title span {
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--gold-deep);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.hero-tagline {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+}
+
+.hero-scroll span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid var(--gold-deep);
+  border-bottom: 2px solid var(--gold-deep);
+  transform: rotate(45deg);
+  animation: scroll-pulse 1.8s infinite;
+  opacity: 0;
+}
+
+.hero-scroll span:nth-child(1) { animation-delay: 0s; }
+.hero-scroll span:nth-child(2) { animation-delay: 0.2s; margin-top: -10px; }
+.hero-scroll span:nth-child(3) { animation-delay: 0.4s; margin-top: -10px; }
+
+@keyframes scroll-pulse {
+  0% { opacity: 0; transform: rotate(45deg) translate(-6px, -6px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(6px, 6px); }
+}
+
+@media (max-width: 600px) {
+  .hero-script { font-size: clamp(3.6rem, 14vw, 5rem); }
+  .hero-title { letter-spacing: 0.3em; }
+}

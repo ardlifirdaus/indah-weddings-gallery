@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+:root {
+  /* Tone A — Cream Gold */
+  --gold-bg: #F9F3EC;
+  --gold-accent: #C9A84C;
+  --gold-deep: #A8862F;
+  --gold-rose: #C07B7B;
+
+  /* Tone B — Lilac Purple */
+  --lilac-bg: #F3EEF8;
+  --lilac-accent: #9B8EC4;
+  --lilac-deep: #5C4D8A;
+
+  /* Shared */
+  --text: #2C2C2C;
+  --text-muted: #6B6258;
+  --white: #FFFFFF;
+  --shadow-sm: 0 6px 18px rgba(74, 56, 26, 0.08);
+  --shadow-md: 0 14px 38px rgba(74, 56, 26, 0.12);
+  --shadow-lg: 0 24px 60px rgba(74, 56, 26, 0.18);
+
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  --container: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--gold-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--gold-bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-accent), var(--lilac-accent));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section.tone-gold { background: var(--gold-bg); }
+.section.tone-lilac { background: var(--lilac-bg); }
+
+.section-label {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--gold-accent);
+  text-align: center;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tone-lilac .section-label { color: var(--lilac-accent); }
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.section-divider {
+  width: 80px;
+  height: 2px;
+  margin: 0 auto 48px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+}
+
+.tone-lilac .section-divider {
+  background: linear-gradient(90deg, transparent, var(--lilac-accent), transparent);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 48px;
+  font-size: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.28s ease;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-accent), var(--gold-deep));
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold-deep);
+  border: 1.5px solid var(--gold-accent);
+}
+
+.btn-secondary:hover {
+  background: var(--gold-accent);
+  color: var(--white);
+}
+
+.btn-lilac {
+  background: linear-gradient(135deg, var(--lilac-accent), var(--lilac-deep));
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-lilac:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.logo-gold {
+  filter: sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85);
+}
+
+.ornament-corner {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  opacity: 0.07;
+  pointer-events: none;
+  color: var(--gold-accent);
+}
+.tone-lilac .ornament-corner { color: var(--lilac-accent); }
+.ornament-corner.top-left { top: 24px; left: 24px; }
+.ornament-corner.top-right { top: 24px; right: 24px; transform: scaleX(-1); }
+.ornament-corner.bottom-left { bottom: 24px; left: 24px; transform: scaleY(-1); }
+.ornament-corner.bottom-right { bottom: 24px; right: 24px; transform: scale(-1, -1); }
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .container { padding: 0 20px; }
+}
