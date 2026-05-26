@@ -394,12 +394,12 @@ export const khitanPackages = [
 ];
 
 export const servicesOverview = [
-  { id: 'makeup', icon: '💄', title: 'Makeup', desc: 'Reguler, lamaran, akad & resepsi', target: 'makeup' },
-  { id: 'lamaran', icon: '💍', title: 'Lamaran', desc: 'Paket engagement lengkap', target: 'lamaran' },
-  { id: 'akad', icon: '🕌', title: 'Akad Nikah', desc: 'Paket akad dengan dekorasi', target: 'akad' },
-  { id: 'attire', icon: '👗', title: 'Busana & Bride', desc: 'Bride only, Geumala, Silver', target: 'attire' },
-  { id: 'planner', icon: '🎪', title: 'Wedding Planner', desc: 'Tenda + dekorasi + EO', target: 'planner' },
-  { id: 'doc', icon: '📸', title: 'Dokumentasi', desc: 'Photo, video & cinematic', target: 'dokumentasi' },
+  { id: 'makeup',  image: '/assets/services/makeup.png',      title: 'Makeup',          desc: 'Paket makeup & hairdo',     target: 'makeup' },
+  { id: 'lamaran', image: '/assets/services/lamaran.png',     title: 'Lamaran',         desc: 'Paket engagement lengkap',  target: 'lamaran' },
+  { id: 'akad',    image: '/assets/services/akad.png',        title: 'Akad Nikah',      desc: 'Paket akad dengan dekorasi',target: 'akad' },
+  { id: 'attire',  image: '/assets/services/attire.png',      title: 'Busana & Bride',  desc: 'Bride only, Geumala, Silver', target: 'attire' },
+  { id: 'planner', image: '/assets/services/planner.png',     title: 'Wedding Planner', desc: 'Tenda + dekorasi + EO',     target: 'planner' },
+  { id: 'doc',     image: '/assets/services/dokumentasi.png', title: 'Dokumentasi',     desc: 'Photo, video & cinematic',  target: 'dokumentasi' },
 ];
 
 export const testimonials = [

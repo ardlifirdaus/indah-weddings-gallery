@@ -2,20 +2,10 @@ import { formatRupiah, buildWaLink } from '../data/packages';
 import './PackageCard.css';
 
 export default function PackageCard({ pkg, onInviteClick }) {
-  const isLilac = pkg.tone === 'lilac';
   const items = pkg.includes ?? pkg.highlights ?? [];
 
   return (
-    <article className={`package-card ${isLilac ? 'is-lilac' : 'is-gold'} ${pkg.highlight ? 'is-highlight' : ''}`}>
-      <button
-        type="button"
-        className="digital-invite-badge"
-        onClick={() => onInviteClick?.(pkg)}
-        aria-label="Lihat contoh undangan digital gratis"
-      >
-        🎁 Gratis Undangan Digital
-      </button>
-
+    <article className={`package-card ${pkg.highlight ? 'is-highlight' : ''}`}>
       {pkg.highlight && <span className="best-pick">★ Best Pick</span>}
 
       <header className="card-header">
@@ -32,11 +22,18 @@ export default function PackageCard({ pkg, onInviteClick }) {
         {items.map((it, i) => (
           <li key={i}><span className="check">✓</span> {it}</li>
         ))}
+        <li className="invite-item" onClick={() => onInviteClick?.(pkg)}>
+          <span className="check gift">🎁</span>
+          <span>
+            <strong>Gratis Undangan Digital</strong>
+            <small className="invite-sk">*S&amp;K berlaku · klik untuk lihat contoh</small>
+          </span>
+        </li>
       </ul>
 
       {pkg.free?.length > 0 && (
         <div className="card-free">
-          <span className="free-label">🎁 Free</span>
+          <span className="free-label">Bonus</span>
           <ul>
             {pkg.free.map((f, i) => <li key={i}>{f}</li>)}
           </ul>
@@ -47,7 +44,7 @@ export default function PackageCard({ pkg, onInviteClick }) {
       {pkg.extra && <p className="card-note">+ {pkg.extra}</p>}
       {pkg.notes && <p className="card-note muted">{pkg.notes}</p>}
 
-      <a className={`btn ${isLilac ? 'btn-lilac' : 'btn-primary'} card-cta`} href={buildWaLink(pkg.name)} target="_blank" rel="noreferrer">
+      <a className="btn btn-primary card-cta" href={buildWaLink(pkg.name)} target="_blank" rel="noreferrer">
         Pesan Sekarang →
       </a>
     </article>

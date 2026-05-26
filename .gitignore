@@ -16,9 +16,17 @@ build
 # Netlify
 .netlify
 
+# Claude Code local config
+.claude/
+
 # Reference materials (local only)
 Price List Indah Weddings Gallery*.pdf
 command.txt
+reference/
+/about.png
+/homepage.PNG
+/mock-up.png
+public/assets/about-pelaminan-jelek.png
 
 # Editor directories and files
 .vscode/*

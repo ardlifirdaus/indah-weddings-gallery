@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(201, 168, 76, 0.16);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 1px solid rgba(155, 142, 196, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
   overflow: hidden;
 }
 
@@ -15,50 +15,19 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(201, 168, 76, 0.06), transparent 40%);
+  background: linear-gradient(180deg, rgba(155, 142, 196, 0.07), transparent 40%);
   pointer-events: none;
-}
-
-.package-card.is-lilac {
-  border-color: rgba(155, 142, 196, 0.2);
-}
-
-.package-card.is-lilac::before {
-  background: linear-gradient(180deg, rgba(155, 142, 196, 0.08), transparent 40%);
 }
 
 .package-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-}
-
-.package-card.is-highlight {
-  border-width: 2px;
-  border-color: var(--gold-accent);
-}
-
-.package-card.is-highlight.is-lilac {
   border-color: var(--lilac-accent);
 }
 
-.digital-invite-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: linear-gradient(135deg, var(--gold-rose), #B96868);
-  color: var(--white);
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 7px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  z-index: 2;
-  box-shadow: 0 6px 14px rgba(192, 123, 123, 0.35);
-  transition: transform 0.25s ease;
-}
-
-.digital-invite-badge:hover {
-  transform: scale(1.05);
+.package-card.is-highlight {
+  border: 2px solid var(--lilac-accent);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FBF7FE 100%);
 }
 
 .best-pick {
@@ -73,38 +42,28 @@
   letter-spacing: 0.1em;
   transform: rotate(-45deg);
   z-index: 1;
-}
-
-.is-lilac .best-pick {
-  background: linear-gradient(135deg, var(--lilac-accent), var(--lilac-deep));
+  box-shadow: 0 4px 12px rgba(168, 134, 47, 0.3);
 }
 
 .card-header {
   text-align: center;
   margin-bottom: 22px;
   padding-bottom: 18px;
-  border-bottom: 1px dashed rgba(201, 168, 76, 0.3);
+  border-bottom: 1px dashed rgba(155, 142, 196, 0.32);
   position: relative;
-}
-
-.is-lilac .card-header {
-  border-bottom-color: rgba(155, 142, 196, 0.32);
 }
 
 .card-subtitle {
   font-family: var(--font-script);
   font-size: 1.4rem;
-  color: var(--gold-accent);
-  display: block;
-}
-
-.is-lilac .card-subtitle {
   color: var(--lilac-accent);
+  display: block;
+  line-height: 1.1;
 }
 
 .card-name {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 700;
   margin: 4px 0 8px;
   color: var(--text);
@@ -112,18 +71,13 @@
 
 .card-tag {
   display: inline-block;
-  background: rgba(201, 168, 76, 0.13);
-  color: var(--gold-deep);
-  font-size: 0.78rem;
-  padding: 4px 12px;
-  border-radius: 999px;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.is-lilac .card-tag {
   background: rgba(155, 142, 196, 0.16);
   color: var(--lilac-deep);
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .card-price {
@@ -144,10 +98,6 @@
   font-family: var(--font-heading);
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--gold-deep);
-}
-
-.is-lilac .card-price strong {
   color: var(--lilac-deep);
 }
 
@@ -156,6 +106,9 @@
   margin: 0 0 18px;
   padding: 0;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .card-list li {
@@ -169,37 +122,61 @@
 }
 
 .check {
-  color: var(--gold-accent);
+  color: var(--lilac-accent);
   font-weight: 700;
   flex-shrink: 0;
+  width: 16px;
+  text-align: center;
 }
 
-.is-lilac .check {
-  color: var(--lilac-accent);
+.check.gift { font-size: 1rem; line-height: 1.2; }
+
+.invite-item {
+  margin-top: 6px;
+  padding: 10px 12px !important;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.12), rgba(155, 142, 196, 0.12));
+  border: 1px dashed var(--gold-accent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.invite-item:hover {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.18), rgba(155, 142, 196, 0.18));
+  border-color: var(--gold-deep);
+  transform: translateX(2px);
+}
+
+.invite-item strong {
+  display: block;
+  color: var(--gold-deep);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.invite-sk {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1px;
 }
 
 .card-free {
-  background: rgba(201, 168, 76, 0.08);
+  background: rgba(155, 142, 196, 0.1);
   border-radius: var(--radius-md);
   padding: 12px 14px;
   margin-bottom: 14px;
 }
 
-.is-lilac .card-free {
-  background: rgba(155, 142, 196, 0.1);
-}
-
 .free-label {
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--gold-deep);
+  color: var(--lilac-deep);
   display: block;
   margin-bottom: 6px;
-  letter-spacing: 0.04em;
-}
-
-.is-lilac .free-label {
-  color: var(--lilac-deep);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .card-free ul {
@@ -214,7 +191,7 @@
   font-size: 0.75rem;
   background: var(--white);
   padding: 3px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--text);
 }
 
@@ -226,13 +203,9 @@
 }
 
 .card-note.bonus {
-  color: var(--gold-deep);
+  color: var(--lilac-deep);
   font-weight: 500;
   font-style: normal;
-}
-
-.is-lilac .card-note.bonus {
-  color: var(--lilac-deep);
 }
 
 .card-cta {

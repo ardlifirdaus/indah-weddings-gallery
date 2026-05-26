@@ -9,7 +9,7 @@ export default function Services() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray('.service-icon-card').forEach((card, i) => {
+      gsap.utils.toArray('.service-photo-card').forEach((card, i) => {
         gsap.from(card, {
           y: 50,
           opacity: 0,
@@ -26,7 +26,7 @@ export default function Services() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="services" ref={ref} className="section tone-lilac services">
+    <section id="services" ref={ref} className="section tone-soft services">
       <div className="container">
         <span className="section-label">Layanan</span>
         <h2 className="section-title">Semua yang Anda Butuhkan, dalam Satu Atap</h2>
@@ -40,13 +40,23 @@ export default function Services() {
           {servicesOverview.map((svc) => (
             <button
               key={svc.id}
-              className="service-icon-card"
+              className="service-photo-card"
               onClick={() => scrollTo(svc.target)}
+              aria-label={`Lihat paket ${svc.title}`}
             >
-              <span className="svc-icon">{svc.icon}</span>
-              <h3>{svc.title}</h3>
-              <p>{svc.desc}</p>
-              <span className="svc-arrow">→</span>
+              <img
+                className="svc-bg"
+                src={svc.image}
+                alt=""
+                loading="lazy"
+                aria-hidden="true"
+              />
+              <div className="svc-overlay" />
+              <div className="svc-content">
+                <h3>{svc.title}</h3>
+                <p>{svc.desc}</p>
+              </div>
+              <span className="svc-arrow" aria-hidden="true">→</span>
             </button>
           ))}
         </div>

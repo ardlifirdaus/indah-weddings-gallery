@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border: 1px solid rgba(201, 168, 76, 0.16);
+  border: 1px solid rgba(155, 142, 196, 0.18);
 }
 
 .testi-stars {
@@ -52,13 +52,13 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border-top: 1px dashed rgba(201, 168, 76, 0.3);
+  border-top: 1px dashed rgba(155, 142, 196, 0.32);
   padding-top: 10px;
 }
 
 .testi-meta strong {
   font-size: 0.95rem;
-  color: var(--gold-deep);
+  color: var(--lilac-deep);
 }
 
 .testi-meta small {

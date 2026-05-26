@@ -65,6 +65,11 @@ export default function PackagesSection({
             <PackageCard key={pkg.id} pkg={pkg} onInviteClick={onInviteClick} />
           ))}
         </div>
+
+        <p className="pkg-footnote">
+          🎁 <strong>Gratis Undangan Digital</strong> berlaku untuk setiap paket.
+          *Syarat &amp; ketentuan berlaku.
+        </p>
       </div>
     </section>
   );

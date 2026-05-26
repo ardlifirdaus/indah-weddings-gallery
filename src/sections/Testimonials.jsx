@@ -4,7 +4,7 @@ import './Testimonials.css';
 export default function Testimonials() {
   const loop = [...testimonials, ...testimonials];
   return (
-    <section id="testimonials" className="section tone-gold testimonials">
+    <section id="testimonials" className="section tone-base testimonials">
       <div className="container">
         <span className="section-label">Testimoni</span>
         <h2 className="section-title">Kata Mereka Tentang Indah Weddings</h2>

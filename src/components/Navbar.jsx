@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
+import CrownLogo from './CrownLogo';
 import './Navbar.css';
 
-const NAV_ITEMS = [
-  { id: 'hero', label: 'Beranda' },
-  { id: 'services', label: 'Layanan' },
-  { id: 'akad', label: 'Paket' },
-  { id: 'undangan', label: 'Undangan Digital' },
-  { id: 'contact', label: 'Kontak' },
+const LEFT_ITEMS = [
+  { id: 'hero', label: 'Home' },
+  { id: 'about', label: 'About Us' },
+  { id: 'services', label: 'Services' },
 ];
+
+const RIGHT_ITEMS = [
+  { id: 'planner', label: 'Portfolio' },
+  { id: 'testimonials', label: 'Testimonials' },
+  { id: 'contact', label: 'Contact' },
+];
+
+const ALL_ITEMS = [...LEFT_ITEMS, ...RIGHT_ITEMS];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,7 +37,7 @@ export default function Navbar() {
       },
       { rootMargin: '-40% 0px -55% 0px' },
     );
-    NAV_ITEMS.forEach(({ id }) => {
+    ALL_ITEMS.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -42,25 +49,31 @@ export default function Navbar() {
     setOpen(false);
   };
 
+  const renderLink = (item) => (
+    <li key={item.id}>
+      <button
+        className={active === item.id ? 'is-active' : ''}
+        onClick={() => scrollTo(item.id)}
+      >
+        {item.label}
+      </button>
+    </li>
+  );
+
   return (
     <nav className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container nav-inner">
-        <button className="nav-logo" onClick={() => scrollTo('hero')} aria-label="Ke beranda">
-          <img src="/assets/logo_bw.png" alt="Indah Weddings Gallery" className="logo-gold" />
+        <ul className="nav-links left">{LEFT_ITEMS.map(renderLink)}</ul>
+
+        <button
+          className="nav-logo"
+          onClick={() => scrollTo('hero')}
+          aria-label="Ke beranda"
+        >
+          <CrownLogo size={scrolled ? 52 : 64} />
         </button>
 
-        <ul className="nav-links">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.id}>
-              <button
-                className={active === item.id ? 'is-active' : ''}
-                onClick={() => scrollTo(item.id)}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <ul className="nav-links right">{RIGHT_ITEMS.map(renderLink)}</ul>
 
         <button
           className={`nav-burger ${open ? 'is-open' : ''}`}
@@ -73,18 +86,7 @@ export default function Navbar() {
       </div>
 
       <div className={`nav-drawer ${open ? 'is-open' : ''}`}>
-        <ul>
-          {NAV_ITEMS.map((item) => (
-            <li key={item.id}>
-              <button
-                className={active === item.id ? 'is-active' : ''}
-                onClick={() => scrollTo(item.id)}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <ul>{ALL_ITEMS.map(renderLink)}</ul>
       </div>
     </nav>
   );

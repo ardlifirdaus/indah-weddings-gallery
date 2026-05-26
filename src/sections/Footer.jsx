@@ -1,3 +1,4 @@
+import CrownLogo from '../components/CrownLogo';
 import './Footer.css';
 
 export default function Footer() {
@@ -5,7 +6,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="/assets/logo_bw.png" alt="Indah Weddings Gallery" className="logo-gold" />
+          <div className="footer-logo">
+            <CrownLogo size={72} />
+          </div>
           <p>
             Wedding Planner &amp; Makeup Artist berbasis di Jakarta Timur.<br />
             Menemani hari istimewa Anda dengan sentuhan tulus.
@@ -15,12 +18,12 @@ export default function Footer() {
         <div className="footer-links">
           <h4>Jelajahi</h4>
           <ul>
-            <li><a href="#hero">Beranda</a></li>
-            <li><a href="#services">Layanan</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#akad">Paket Akad</a></li>
             <li><a href="#planner">Wedding Planner</a></li>
             <li><a href="#undangan">Undangan Digital</a></li>
-            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 

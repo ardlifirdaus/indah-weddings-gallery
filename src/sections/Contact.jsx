@@ -6,7 +6,7 @@ export default function Contact() {
   const mapsLink = 'https://maps.app.goo.gl/XJ84YUFtR6vANasJ7';
 
   return (
-    <section id="contact" className="section tone-lilac contact">
+    <section id="contact" className="section tone-soft contact">
       <div className="container">
         <span className="section-label">Kontak</span>
         <h2 className="section-title">Hubungi Kami</h2>

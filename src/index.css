@@ -1,32 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Pinyon+Script&family=Allura&display=swap');
 
 :root {
-  /* Tone A — Cream Gold */
-  --gold-bg: #F9F3EC;
-  --gold-accent: #C9A84C;
-  --gold-deep: #A8862F;
-  --gold-rose: #C07B7B;
-
-  /* Tone B — Lilac Purple */
-  --lilac-bg: #F3EEF8;
+  /* Primary — Lilac / Lavender */
+  --lilac-bg: #F4EEF7;
+  --lilac-soft: #E8DDF0;
+  --lilac-mid: #C9B6DD;
   --lilac-accent: #9B8EC4;
   --lilac-deep: #5C4D8A;
+  --lilac-text: #4A3D6B;
 
-  /* Shared */
-  --text: #2C2C2C;
-  --text-muted: #6B6258;
+  /* Accent — Forest Green pill */
+  --green-deep: #3E5B41;
+  --green-mid: #5C7A5F;
+
+  /* Accent — Gold (brand crown only) */
+  --gold-accent: #C9A84C;
+  --gold-deep: #A8862F;
+  --gold-soft: #E6D49A;
+
+  /* Supporting */
+  --rose-soft: #D8AFB4;
+  --cream: #FAF6F0;
+
+  /* Text — navy for high contrast on lilac BG */
+  --navy: #1B2A4E;
+  --navy-deep: #14213D;
+  --text: #1B2A4E;
+  --text-muted: #4A5A7A;
   --white: #FFFFFF;
-  --shadow-sm: 0 6px 18px rgba(74, 56, 26, 0.08);
-  --shadow-md: 0 14px 38px rgba(74, 56, 26, 0.12);
-  --shadow-lg: 0 24px 60px rgba(74, 56, 26, 0.18);
 
+  /* Shadows */
+  --shadow-sm: 0 6px 18px rgba(76, 60, 110, 0.08);
+  --shadow-md: 0 14px 38px rgba(76, 60, 110, 0.14);
+  --shadow-lg: 0 24px 60px rgba(76, 60, 110, 0.22);
+
+  /* Fonts */
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Poppins', sans-serif;
-  --font-script: 'Great Vibes', cursive;
+  --font-script: 'Pinyon Script', cursive;
+  --font-script-alt: 'Allura', cursive;
 
+  /* Radii */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 24px;
+  --radius-pill: 999px;
 
   --container: 1200px;
 }
@@ -44,7 +62,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text);
-  background: var(--gold-bg);
+  background: var(--lilac-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -75,12 +93,12 @@ img {
 }
 
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--gold-bg); }
+::-webkit-scrollbar-track { background: var(--lilac-bg); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--gold-accent), var(--lilac-accent));
+  background: linear-gradient(180deg, var(--lilac-accent), var(--lilac-deep));
   border-radius: 8px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
+::-webkit-scrollbar-thumb:hover { background: var(--lilac-deep); }
 
 .container {
   max-width: var(--container);
@@ -94,19 +112,19 @@ img {
   overflow: hidden;
 }
 
-.section.tone-gold { background: var(--gold-bg); }
-.section.tone-lilac { background: var(--lilac-bg); }
+.section.tone-soft { background: var(--lilac-soft); }
+.section.tone-cream { background: var(--cream); }
+.section.tone-base { background: var(--lilac-bg); }
 
 .section-label {
   font-family: var(--font-script);
   font-size: clamp(2rem, 4vw, 2.8rem);
-  color: var(--gold-accent);
+  color: var(--lilac-deep);
   text-align: center;
   display: block;
   margin-bottom: 8px;
+  line-height: 1.1;
 }
-
-.tone-lilac .section-label { color: var(--lilac-accent); }
 
 .section-title {
   font-family: var(--font-heading);
@@ -115,23 +133,33 @@ img {
   text-align: center;
   letter-spacing: 0.02em;
   margin-bottom: 12px;
+  color: var(--text);
 }
 
 .section-divider {
-  width: 80px;
+  width: 90px;
   height: 2px;
   margin: 0 auto 48px;
-  background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--lilac-accent), transparent);
+  position: relative;
 }
 
-.tone-lilac .section-divider {
-  background: linear-gradient(90deg, transparent, var(--lilac-accent), transparent);
+.section-divider::after {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold-accent);
+  background: inherit;
+  font-size: 0.9rem;
+  padding: 0 8px;
 }
 
 .section-subtitle {
   text-align: center;
   color: var(--text-muted);
-  max-width: 620px;
+  max-width: 640px;
   margin: 0 auto 48px;
   font-size: 1rem;
 }
@@ -140,11 +168,13 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 28px;
-  border-radius: 999px;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
   font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.28s ease;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.32s ease;
   cursor: pointer;
   text-align: center;
   justify-content: center;
@@ -152,51 +182,47 @@ img {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold-accent), var(--gold-deep));
+  background: linear-gradient(135deg, var(--lilac-accent), var(--lilac-deep));
   color: var(--white);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 10px 26px rgba(92, 77, 138, 0.32);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 14px 34px rgba(92, 77, 138, 0.42);
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--gold-deep);
-  border: 1.5px solid var(--gold-accent);
+  background: var(--lilac-soft);
+  color: var(--lilac-deep);
+  border: 1.5px solid var(--lilac-mid);
 }
 
 .btn-secondary:hover {
-  background: var(--gold-accent);
+  background: var(--lilac-mid);
   color: var(--white);
 }
 
-.btn-lilac {
-  background: linear-gradient(135deg, var(--lilac-accent), var(--lilac-deep));
-  color: var(--white);
-  box-shadow: var(--shadow-sm);
+.btn-pill-light {
+  background: var(--lilac-soft);
+  color: var(--lilac-deep);
+  border: 1px solid rgba(155, 142, 196, 0.4);
 }
 
-.btn-lilac:hover {
+.btn-pill-light:hover {
+  background: var(--lilac-mid);
+  color: var(--white);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.logo-gold {
-  filter: sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85);
 }
 
 .ornament-corner {
   position: absolute;
   width: 220px;
   height: 220px;
-  opacity: 0.07;
+  opacity: 0.08;
   pointer-events: none;
-  color: var(--gold-accent);
+  color: var(--lilac-accent);
 }
-.tone-lilac .ornament-corner { color: var(--lilac-accent); }
 .ornament-corner.top-left { top: 24px; left: 24px; }
 .ornament-corner.top-right { top: 24px; right: 24px; transform: scaleX(-1); }
 .ornament-corner.bottom-left { bottom: 24px; left: 24px; transform: scaleY(-1); }

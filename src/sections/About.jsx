@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Player } from '@lottiefiles/react-lottie-player';
 import './About.css';
 
 const STATS = [
@@ -16,20 +15,27 @@ export default function About() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.about-left > *', {
-        y: 40,
+        y: 30,
         opacity: 0,
-        stagger: 0.12,
-        duration: 0.8,
+        stagger: 0.1,
+        duration: 0.7,
         ease: 'power3.out',
         scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
       });
-      gsap.from('.about-stat', {
-        y: 60,
+      gsap.from('.about-arch', {
+        y: 40,
         opacity: 0,
-        stagger: 0.18,
-        duration: 0.8,
-        ease: 'back.out(1.5)',
-        scrollTrigger: { trigger: '.about-stats', start: 'top 80%' },
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.about-arch', start: 'top 80%' },
+      });
+      gsap.from('.about-stat', {
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.7,
+        ease: 'back.out(1.4)',
+        scrollTrigger: { trigger: '.about-stats', start: 'top 85%' },
       });
 
       STATS.forEach((stat, i) => {
@@ -51,7 +57,12 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="section tone-gold about">
+    <section id="about" ref={sectionRef} className="section tone-base about">
+      <img className="about-floral tl" src="/assets/floral-tl.png" alt="" aria-hidden="true" />
+      <img className="about-floral tr" src="/assets/floral-tr.png" alt="" aria-hidden="true" />
+      <img className="about-floral bl" src="/assets/floral-bl.png" alt="" aria-hidden="true" />
+      <img className="about-floral br" src="/assets/floral-br.png" alt="" aria-hidden="true" />
+
       <div className="container about-grid">
         <div className="about-left">
           <span className="section-label">Tentang Kami</span>
@@ -70,12 +81,11 @@ export default function About() {
         </div>
 
         <div className="about-right">
-          <div className="about-lottie">
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/9c4f3a1c-7b71-4d9e-9b8d-ef41a5e08bd2/4lYqWWmZj7.json"
-              style={{ height: 220, width: 220 }}
+          <div className="about-arch">
+            <img
+              src="/assets/about-pelaminan.png"
+              alt="Dekorasi pelaminan Indah Weddings Gallery"
+              loading="lazy"
             />
           </div>
         </div>

@@ -28,7 +28,7 @@ export default function DigitalInvitation({ onOpenModal }) {
   }, []);
 
   return (
-    <section id="undangan" ref={ref} className="section tone-lilac undangan-section">
+    <section id="undangan" ref={ref} className="section tone-cream undangan-section">
       <div className="container undangan-inner">
         <div className="undangan-text">
           <div className="undangan-overlay-text">

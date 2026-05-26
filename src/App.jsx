@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/Navbar';
 import FloatingWA from './components/FloatingWA';
 import InviteModal from './components/InviteModal';
+import CornerFlowers from './components/CornerFlowers';
 
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -59,7 +60,7 @@ function App() {
           title="Paket Makeup Profesional"
           subtitle="MUA berpengalaman untuk berbagai momen — dari party reguler sampai akad & resepsi."
           packages={makeupPackages}
-          tone="gold"
+          tone="base"
           onInviteClick={openModal}
         />
 
@@ -69,7 +70,7 @@ function App() {
           title="Paket Lamaran Lengkap"
           subtitle="Backdrop, dekorasi, makeup, dan dokumentasi — semua dalam satu paket."
           packages={lamaranPackages}
-          tone="gold"
+          tone="soft"
           onInviteClick={openModal}
         />
 
@@ -79,7 +80,7 @@ function App() {
           title="Paket Akad Pilihan"
           subtitle="Sesuaikan dengan kebutuhan akad Anda — dari akad sederhana hingga akad lengkap dengan dekorasi premium."
           packages={akadPackages}
-          tone="gold"
+          tone="base"
           onInviteClick={openModal}
         />
 
@@ -89,7 +90,7 @@ function App() {
           title="Paket Busana Pengantin"
           subtitle="Bride only, sepasang, hingga lengkap dengan keluarga & pager ayu."
           packages={attirePackages}
-          tone="lilac"
+          tone="soft"
           onInviteClick={openModal}
         />
 
@@ -99,7 +100,7 @@ function App() {
           title="Paket Tenda &amp; Resepsi"
           subtitle="7 pilihan paket lengkap mulai dari Jasmine sampai Diamond — tenda, pelaminan, makeup, dokumentasi, hingga hiburan."
           packages={tendaPackages}
-          tone="gold"
+          tone="base"
           onInviteClick={openModal}
         />
 
@@ -109,7 +110,7 @@ function App() {
           title="Paket Foto &amp; Video"
           subtitle="Fotografer, videografer, cinematic edit — hasil siap dibagikan dan disimpan seumur hidup."
           packages={dokumentasiPackages}
-          tone="lilac"
+          tone="soft"
           onInviteClick={openModal}
         />
 
@@ -119,7 +120,7 @@ function App() {
           title="Sesi Prewedding Studio"
           subtitle="Konsep adat, klasik, atau casual — siap pilih look dan kostum favorit Anda."
           packages={preweddingPackages}
-          tone="gold"
+          tone="soft"
           onInviteClick={openModal}
         />
 
@@ -129,7 +130,7 @@ function App() {
           title="Paket Khitan Keluarga"
           subtitle="Acara khitan yang berkesan dengan dekorasi, makeup, dan dokumentasi profesional."
           packages={khitanPackages}
-          tone="gold"
+          tone="base"
           onInviteClick={openModal}
         />
 
@@ -141,6 +142,7 @@ function App() {
       </main>
 
       <Footer />
+      <CornerFlowers />
       <FloatingWA />
       <InviteModal open={modalOpen} onClose={closeModal} pkg={selectedPkg} />
     </>
