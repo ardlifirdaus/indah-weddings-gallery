@@ -29,6 +29,13 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -78,12 +85,18 @@ export default function Navbar() {
         <button
           className={`nav-burger ${open ? 'is-open' : ''}`}
           onClick={() => setOpen((v) => !v)}
-          aria-label="Buka menu"
+          aria-label={open ? 'Tutup menu' : 'Buka menu'}
           aria-expanded={open}
         >
           <span /><span /><span />
         </button>
       </div>
+
+      <div
+        className={`nav-backdrop ${open ? 'is-open' : ''}`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
 
       <div className={`nav-drawer ${open ? 'is-open' : ''}`}>
         <ul>{ALL_ITEMS.map(renderLink)}</ul>

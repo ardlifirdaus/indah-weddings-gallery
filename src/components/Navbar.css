@@ -94,6 +94,7 @@
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 102;
 }
 
 .nav-burger span {
@@ -107,6 +108,21 @@
 .nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-burger.is-open span:nth-child(2) { opacity: 0; }
 .nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 33, 61, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 98;
+}
+
+.nav-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .nav-drawer {
   position: fixed;
